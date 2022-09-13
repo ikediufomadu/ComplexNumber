@@ -16,17 +16,17 @@ public class Driver {
         choice = userInput.nextInt();
         switch (choice) {
             case 1:
-                NumberOperations.add(NumberOperations.read(userValue(), secondUserValue()));
+                NumberOperations.add(userValue());
                 break;
-//            case 2:
-//                NumberOperations.subtract(userValue(), secondUserValue());
-//                break;
-//            case 3:
-//                NumberOperations.multiply(userValue(), secondUserValue());
-//                break;
-//            case 4:
-//                NumberOperations.divide(userValue(), secondUserValue());
-//                break;
+            case 2:
+                NumberOperations.subtract(userValue());
+                break;
+            case 3:
+                NumberOperations.multiply(userValue());
+                break;
+            case 4:
+                NumberOperations.divide(userValue());
+                break;
 //            case 5:
 //                NumberOperations.cAbs(userValue());
 //                break;
@@ -39,16 +39,21 @@ public class Driver {
                 break;
         }
     }
-    public static double userValue() {
+    public static double[] userValue() {
+        double[] storeInputs = new double[4];
         double userChoice;
-        System.out.print("Enter the first complex number combo (real then imaginary): ");
+        System.out.print("Enter the first complex number (real): ");
         userChoice  = userInput.nextDouble();
-        return userChoice;
-    }
-    public static double secondUserValue() {
-        double userChoice;
-        System.out.print("Enter the second complex number combo (real then imaginary): ");
+        storeInputs[0] = userChoice;
+        System.out.print("(Imaginary): ");
+        userChoice  = userInput.nextDouble();
+        storeInputs[1] = userChoice;
+        System.out.print("Enter the second complex number (real): ");
         userChoice = userInput.nextDouble();
-        return  userChoice;
+        storeInputs[2] = userChoice;
+        System.out.print("(Imaginary): ");
+        userChoice  = userInput.nextDouble();
+        storeInputs[3] = userChoice;
+        return storeInputs;
     }
 }
