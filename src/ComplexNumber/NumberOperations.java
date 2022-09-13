@@ -1,35 +1,21 @@
 package ComplexNumber;
-import java.math.*;
 
 public class NumberOperations {
-//    static double real = 0;
-//    static double complex = 0;
 
-//    public NumberOperations() {
-//
-//    }
-
-    public static double[] read(double[] value) {
-        String[] splitter = String.valueOf(value).split(" ");
-        double[] splitHolder = new double[4];
-        splitHolder[0] = Double.parseDouble(splitter[0]);
-        splitHolder[1] = Double.parseDouble(splitter[1]);
-        splitHolder[2] = Double.parseDouble(splitter[2]);
-        splitHolder[3] = Double.parseDouble(splitter[3]);
-
-        return splitHolder;
+    public static boolean equal(double[] storedInputs) {
+        double storedInput1 = storedInputs[0];
+        double storedInput2 = storedInputs[1];
+        double storedInput3 = storedInputs[2];
+        double storedInput4 = storedInputs[3];
+        System.out.println("First complex number is: (" + storedInput1 + ", " + storedInput2 + ")");
+        System.out.println("First complex number is: (" + storedInput3 + ", " + storedInput4 + ")");
+        if(storedInput1 == storedInput3 && storedInput2 == storedInput4) {
+            System.out.println("\nThese complex numbers are equal");
+            return true;
+        }
+        System.out.println("\nThese complex numbers are not equal");
+        return false;
     }
-//    private static void print() {}
-//    private static double getReal() {
-//        return real;
-//    }
-//    private static double getImaginary() {
-//        return complex;
-//    }
-//    public static boolean equal() {}
-//    private static copy () {}
-//    getCopy () {}
-//    toString() {}
     public static void add(double[] storedInputs) {
         double a = storedInputs[0];
         double b = storedInputs[1];
@@ -71,14 +57,22 @@ public class NumberOperations {
         double b = storedInputs[1];
         double c = storedInputs[2];
         double d = storedInputs[3];
-        double cSqrt = Math.sqrt(c);
-        double dSqrt = Math.sqrt(d);
+        double cPow = Math.pow(c, 2);
+        double dPow = Math.pow(d, 2);
 
-        double answer1 = ((a * c + b * d) / (cSqrt + dSqrt));
-        double answer2 = ((b * c - a * d) / (cSqrt + dSqrt));
+        double answer1 = ((a * c + b * d) / (cPow + dPow));
+        double answer2 = ((b * c - a * d) / (cPow + dPow));
 
         System.out.println("Result: (" + a + ", " + b + ") * (" + c +
                 ", " + d + ") = (" + answer1 + ", " + answer2 + ")");
     }
-//    public static double cAbs() {}
+    public static void cAbs(double[] storedInputs) {
+        double a = storedInputs[0];
+        double b = storedInputs[1];
+        double aPow = Math.pow(a, 2);
+        double bPow = Math.pow(b, 2);
+
+        double answer = Math.sqrt(aPow + bPow);
+        System.out.println("Result: | (" + a + ", " + b + ") | = " + answer);
+    }
 }
